@@ -6,7 +6,7 @@ import time
 # Parâmetros do Q-Learning
 alpha = 1     # Taxa de aprendizado (0 - 1)
 gamma = 0.9     # Fator de desconto
-epsilon = 0.2   # Taxa de exploração inicial
+epsilon = 0   # Taxa de exploração inicial
 min_epsilon = 0.01  # Valor mínimo de epsilon
 decay_rate = 0.995   # Taxa de decaimento de epsilon
 actions = [
@@ -137,7 +137,7 @@ def main():
     episode = 1
     total_steps = 0
     max_steps_per_episode = 1000
-    training_episodes = 500  # Número de episódios para treinamento
+    training_episodes = 200  # Número de episódios para treinamento
     demonstration_episodes = 10  # Número de episódios para demonstração
 
     # Rastreamento do melhor caminho
@@ -189,7 +189,6 @@ def main():
     demo_speed = 10      # FPS para demonstração
     best_path_speed = 5  # FPS para demonstração do melhor caminho
     steps_in_episode = 0
-    show_best_path_preview = False
     best_path_simulation_pos = 0
 
     font = pygame.font.SysFont(None, 24)
@@ -327,7 +326,7 @@ def main():
         ]
 
         for i, text in enumerate(info_text):
-            text_surface = font.render(text, True, (210, 100, 100))
+            text_surface = font.render(text, True, (200, 200, 100))
             screen.blit(text_surface, (10, 10 + i * 25))
 
         pygame.display.flip()
